@@ -1,0 +1,142 @@
+<!--miniprogram/pages/activityInfo.wxml-->
+<import src="../templates/slide/slide.wxml" />
+<import src="../templates/tabBar/tabBar.wxml" />
+
+<scroll-view class="container" scroll-y='true'>
+
+    <!-- 公告栏 -->
+    <view class='msg'></view>
+
+    <!-- 音乐动画及控件 -->
+    <view class='wrap' wx:if='{{rhythm_show}}'>
+      <view class='m1'></view>
+      <view class='m2'></view>
+      <view class='m3'></view>
+      <view class='m4'></view>
+      <view class='m5'></view>
+    </view>
+    <image bind:tap='playOrPause' class='music {{music_animated}}' src='../../images/icon/music13.png'></image>
+    <audio src=''></audio>
+
+    <!-- 轮播图 -->
+    <template is="slide_template" data="{{...slide}}"></template>
+
+    <!-- 倒计时 -->
+    <view class='countdown'>
+      <text>活动倒计时</text>
+      <view id='countdown'>
+        <view class='time'>
+          <view>{{countdown.day}}</view>
+          <view>天</view>
+        </view>
+        <view class='time'>
+          <view>{{countdown.hours}}</view>
+          <view>时</view>
+        </view>
+        <view class='time'>
+          <view>{{countdown.minute}}</view>
+          <view>分</view>
+        </view>
+        <view class='time'>
+          <view>{{countdown.seconds}}</view>
+          <view>秒</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 推荐人 -->
+    <view class='referrer'>
+      <open-data class='avatar' type="userAvatarUrl"></open-data>
+      <!-- <image class='img' src='{{referrer.avatarUrl}}'></image> -->
+      <view class='content'>
+        <open-data type="userNickName"></open-data>
+        <!-- <text>{{referrer.nickName}}</text> -->
+        <text>诚邀你来参加此活动，机不可失哦！</text>
+      </view>
+    </view>
+
+    <!-- 浏览记录 -->
+    <view class='statisticalData'>
+      <view class=''>
+        <text decode='true'>限额&nbsp;</text>
+        <text>{{statisticalData.stock}}</text>
+      </view>
+      <view class=''>
+        <text decode='true'>浏览量&nbsp;</text>
+        <text>{{statisticalData.pageView}}</text>
+      </view>
+      <view class=''>
+        <text decode='true'>已购&nbsp;</text>
+        <text>{{statisticalData.buyNum}}</text>
+      </view>
+      <view class=''>
+        <text decode='true'>进度&nbsp;</text>
+        <text>{{statisticalData.jindu}}</text>
+      </view>
+    </view>
+    <view class='pageView'>
+      <block wx:for='{{pageView}}'>
+        <view class='record'>
+          <image src='{{item.avatarUrl}}'></image>
+          <text>{{item.nickName}}</text>
+        </view>
+      </block>
+    </view>
+    
+    <!-- 最新订单 -->
+    <view class='title'>最新订单</view>
+    <view class='newOrder'>
+      <view class='list'>
+        <block wx:for='{{newOrder}}'>
+          <view class='record'>
+            <image src='{{item.avatarUrl}}'></image>
+            <view class='item'>
+              <text>{{item.nickName}}</text>
+              <text>{{item.phone}}</text>
+            </view>
+            <view class='item'>
+              <text style='color:#ff5722'>已付款：{{item.money}}</text>
+              <text>{{item.payTime}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- 活动介绍 -->
+    <view class='title'>活动介绍</view>
+    <view class='activityInfo'>
+      <block wx:for='{{activityIntroduce}}'>
+        <image mode='widthFix' src='{{item}}'></image>
+      </block>
+    </view>
+    <!-- 佣金排行榜 -->
+    <view class='title'>佣金排行榜</view>
+    <view class='brokerageRankingList'>
+        <block wx:for='{{brokerageRankingList}}'>
+          <view class='record'>
+            <image src='{{item.avatarUrl}}'></image>
+            <view class='item'>
+              <text>{{item.nickName}}</text>
+              <text decode='true'>推荐：{{item.referrerNum}}&nbsp;人</text>
+            </view>
+            <view class='item'>
+              <text decode='true' style='color:#ff5722'>已赚：{{item.money}}&nbsp;元</text>
+            </view>
+          </view>
+        </block>
+    </view>
+    <!-- 活动联系img -->
+    <view class='activityIntro'>
+      <image style='width:100%' mode='widthFix' src='{{activityImg}}'></image>
+    </view>
+
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<template is="tabBar_template" data="{{...slide}}"></template>
+<!-- 分享按钮 -->
+<button open-type='share'>
+  <image bind:tap='fenxiang' mode='widthFix' class='fenxiang'   src='../../images/icon/fenxiang.png'></image>
+</button>
+
+

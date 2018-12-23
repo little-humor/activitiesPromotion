@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/person/person",
+    "pages/activityInfo/activityInfo",
+    "pages/index/index"
+    
+  ],
+  "window": {
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "南国实创",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  }
+}

@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<import src="../templates/slide/slide.wxml" />
+<import src="../templates/tabBar/tabBar.wxml" />
+
+<view class="container">
+
+  <!-- 轮播图 -->
+  <template is="slide_template" data="{{...slide}}"></template>
+  
+  <view class=''>
+    
+  </view>
+
+</view>
+<!-- 底部导航栏 -->
+<template is="tabBar_template"></template>

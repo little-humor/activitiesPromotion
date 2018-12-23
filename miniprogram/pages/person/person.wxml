@@ -1,0 +1,46 @@
+<!--miniprogram/pages/person/person.wxml-->
+
+<import src="../templates/tabBar/tabBar.wxml" />
+
+<view class='container'>
+
+  <!-- 用户信息 -->
+  <view class='userInfo'>
+    <open-data class='avatar' type="userAvatarUrl"></open-data>
+    <open-data type="userNickName"></open-data>
+    <button type='mini' wx:if="{{!isLogin}}" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>登录</button>
+  </view>
+  <view class='tab' style='margin:30rpx 0'>
+    <image mode='widthFix' src='../../images/icon/brokerage.png'></image>
+    <text>佣金</text>
+  </view>
+  <view class='container' style='background-color:#fff'>
+    <view class='tab'>
+      <image mode='widthFix' src='../../images/icon/addActivity.png'></image>
+      <text>活动制作</text>
+    </view>
+    <view class='line'></view>
+    <view class='tab'>
+      <image mode='widthFix' src='../../images/icon/order.png'></image>
+      <text>我的订单</text>
+    </view>
+    <view class='line'></view>
+    <view class='tab'>
+      <image mode='widthFix' src='../../images/icon/fens.png'></image>
+      <text>我的粉丝</text>
+    </view>
+    <view class='line'></view>
+    <view class='tab'>
+      <image mode='widthFix' src='../../images/icon/address.png'></image>
+      <text>我的收货地址</text>
+    </view>
+  </view>
+  <view class='tab' style='margin-top:30rpx'>
+      <image mode='widthFix' src='../../images/icon/feedback.png'></image>
+      <text>反馈</text>
+    </view>
+  
+
+</view>
+<!-- 底部导航栏 -->
+<template is="tabBar_template"></template>

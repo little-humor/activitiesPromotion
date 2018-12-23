@@ -1,0 +1,15 @@
+/**app.wxss**/
+
+@import "./style/weui.wxss";
+@import "./pages/templates/slide/slide.wxss";
+@import "./pages/templates/tabBar/tabBar.wxss";
+
+page{
+  background-color: #F6F6F6
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 

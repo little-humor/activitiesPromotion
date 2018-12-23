@@ -1,0 +1,19 @@
+<!--miniprogram/pages/templates/tabBar/tabBar.wxml-->
+<!-- 底部导航栏 模版 -->
+<template name="tabBar_template">
+  <view class='tabBar'>
+        <view class='tabItem' bind:tap="navigateTo" data-name='faxian'>
+          <image mode='widthFix' class='icon' src='../../images/icon/faxian.png'></image>
+          <text>发现</text>
+        </view>
+        <button class='tabItem-qianggou animated infinite' open-type='getUserInfo' bindgetuserinfo='getUserInfo' >
+          抢购
+        </button>
+        
+        <view class='tabItem' bind:tap="navigateTo" data-name='person'>
+            <image mode='widthFix' class='icon' src='../../images/icon/person.png'></image>
+            <text>个人中心</text>
+        </view>
+      </view>
+  <view class='tabItem-yuanquan'></view>
+</template>
